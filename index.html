@@ -10,7 +10,7 @@
 
 <body>
     <h1>Pokedex</h1>
-    <form action="http://localhost:8080/cartas/busca" method="get"> 
+    <form action="http://localhost:8080/cartas/nova" method="post"> 
 
         <label> nome</label>
         <input type="text" name="nome" id="nome">
@@ -33,6 +33,7 @@
         <input type="number" name="id" id="">
         <button type="submit">Achar</button>
     </form>
+    
     <script>
         const formulario = document.getElementById('formulario')
         formulario.addEventListener('submit', function(event){
