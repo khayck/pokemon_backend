@@ -64,6 +64,27 @@ app.listen(porta, () => {
   console.log(`Catálogo rodando na porta ${porta}`);
 });
 
+app.put("/cartas/:id", (req, res) => {
+  let idAtualizar = parseInt(req.params.id);
+
+  let { nome, expansao, hp } = req.body;
+  let indexCarta = colecaoCartas.findIndex((carta) => carta.id === idDelete);
+  if (indexCarta === -1) {
+    return res.status(404).json({
+      status: false,
+      erro: "Carta não encontrada para atualizar!",
+    });
+  }
+  if(nome) colecaoCartas[indexCarta].nome = nome;
+  if(expansao) colecaoCartas[indexCarta].expansao;
+  if(hp) colecaoCartas[indexCarta].hp = parseInt(hp);
+
+  res.status(200).json({
+      mensagem: "Carta atualizada com sucesso!",
+      cartaAtualizada: colecaoCartas[indexCarta],
+    });
+});
+
 app.delete("/cartas/delete", (req, res) => {
   let idDelete = parseInt(req.body.id);
   let indexCarta = colecaoCartas.findIndex((carta) => carta.id === idDelete);
@@ -74,8 +95,9 @@ app.delete("/cartas/delete", (req, res) => {
       mensagem: "Carta Inexistente",
     });
   }
-  colecaoCartas.splice(indexCarta,1); 
+  colecaoCartas.splice(indexCarta, 1);
   res.status(200).json({
-    mensagem: "Carta deletada com sucesso", indexCarta
-  })
+    mensagem: "Carta deletada com sucesso",
+    indexCarta,
+  });
 });

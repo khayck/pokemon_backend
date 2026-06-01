@@ -33,7 +33,21 @@
         <input type="number" name="id" id="">
         <button type="submit">Achar</button>
     </form>
-    
+  
+    <hr>
+    <h2>Atualização de cartas!</h2>
+    <form id="formAtualizar">
+        <label for="">Id da carta(OBRIGATÓRIO!!!)</label>
+        <input type="number" id="idEdit" required>
+        <br><br>
+        <label>Novo nome:</label>
+        <input type="text" id="nomeEdit" placeholder="Deixe em branco para manter!>
+        <br><br>
+        <label>Novo HP:</label>
+            <input type="text" id="hpEdit" placeholder="Deixe em branco para manter!">
+            <br><br>
+            <button type="submit">Atualizar</button>
+    </form>
     <script>
         const formulario = document.getElementById('formulario')
         formulario.addEventListener('submit', function(event){
